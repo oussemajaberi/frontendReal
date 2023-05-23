@@ -1,0 +1,25 @@
+.home_content
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding :20px 30px
+}
+.home_content h5
+{
+  font-size: 23px;
+  letter-spacing: .5px;
+}
+.section_content
+{
+  display: flex;
+}
+
+.project_content
+{
+  width: 600px;
+  height: 500px;
+  background-color: antiquewhite;
+
+}

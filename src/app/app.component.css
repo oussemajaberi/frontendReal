@@ -1,0 +1,48 @@
+.sidenav_principal
+{
+  height:90vh;
+  width:20% ;
+  background-color: #263238;
+  padding: 15px 25px;
+}
+.sidenav-nav
+{
+  display: flex;
+  flex-direction: column;
+  color:#fff;
+}
+.sidenav-nav li
+{
+
+    list-style-type: none;
+
+}
+.sidenav-nav li a {
+  display: flex;
+  align-items: center;
+}
+.sidenav-nav li span {
+  margin-left: 15px;
+}
+.sidenav-nav .custom-icon
+{
+    font-size: 26px; /* Adjust the desired size */
+}
+.sidenav-nav li
+{
+  margin:20px 0;
+  padding: 10px 15px;
+}
+
+.content_comp
+{
+  display: flex;
+}
+app-sidenav
+{
+  flex: 0 0 20%;
+}
+app-home
+{
+  flex: 0 0 80%;
+}

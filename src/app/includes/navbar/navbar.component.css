@@ -1,0 +1,27 @@
+.navbar
+{
+  background-color: #376bbc;
+  color: white;
+  padding:18px 10px;
+}
+.navbar-brand
+{
+  color: white;
+}
+.nav-link
+{
+  color: white;
+}
+.active
+{
+  color: white;
+}
+.profile_part
+{
+  display: flex;
+  align-items: center;
+}
+.nav-link.active
+{
+  color: white;
+}
