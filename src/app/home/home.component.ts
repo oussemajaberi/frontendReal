@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SecurityService } from '../services/security.service';
 import { KeycloakService } from 'keycloak-angular';
 import { KeycloakProfile } from 'keycloak-js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   public firstName?: string | null = null;
   public lastName?: string | null = null;
 
-  constructor(public securityService: SecurityService,public kcService:KeycloakService) {
+  constructor(public securityService: SecurityService,public kcService:KeycloakService,private router: Router) {
 
    }
 

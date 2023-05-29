@@ -1,0 +1,26 @@
+.task_box
+{
+
+  min-width: 500px;
+  height: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 15px 25px;
+  margin:0 15px;
+
+  .task_titre{
+     font-size: 20px;
+     font-weight: 500;
+  }
+  .task_add_icon:hover
+  {
+    cursor: pointer;
+  }
+  .task_add_icon a
+  {
+    text-decoration: none;
+    color: #454545;
+  }
+
+}

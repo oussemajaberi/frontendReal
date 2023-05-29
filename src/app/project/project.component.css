@@ -1,0 +1,52 @@
+.project_box
+{
+
+  min-width: 500px;
+  height: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 15px 25px;
+  margin:0 15px;
+
+  .project_titre{
+     font-size: 20px;
+     font-weight: 500;
+  }
+  .project_add_icon
+  {
+    margin-top: 20px;
+    margin-bottom: 7%;
+    padding: 0 20px;
+    color:#3f3f3f
+  }
+  .project_add_icon:hover
+  {
+    cursor: pointer;
+  }
+  .project_add_icon a
+  {
+    text-decoration: none;
+    color: #454545;
+  }
+  .list_of_project li
+  {
+    list-style-type: none;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #3333331a;
+  }
+  .list_of_project li .date_project
+  {
+    font-size: 13px;
+    font-weight: 300;
+  }
+  .list_of_project li .project_title
+  {
+    font-size: 17px;
+
+  }
+
+}

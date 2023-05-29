@@ -1,4 +1,4 @@
-<div class="home_content">
+<!--<div class="home_content">
   <h5>Bonjour {{firstName}}</h5>
   <div class="section_content">
     <div class="project_content">
@@ -7,3 +7,16 @@
   </div>
 
 </div>
+-->
+<router-outlet></router-outlet>
+<app-navbar></app-navbar>
+<div class="content_comp" style="display:flex">
+  <app-sidenav></app-sidenav>
+    <div class="stats_content">
+      <app-project></app-project>
+      <app-task></app-task>
+    </div>
+
+
+</div>
+

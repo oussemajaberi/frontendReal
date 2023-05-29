@@ -11,6 +11,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectComponent } from './project/project.component';
+import { TaskComponent } from './task/task.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProjectIdComponent } from './project-id/project-id.component';
 export function Kcfactory(kcService: KeycloakService) {
   return () =>
    kcService.init({
@@ -35,7 +39,10 @@ export function Kcfactory(kcService: KeycloakService) {
     NavbarComponent,
     SidenavComponent,
     HomeComponent,
-    ProjectComponent
+    ProjectComponent,
+    TaskComponent,
+    AddProjectComponent,
+    ProjectIdComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +50,9 @@ export function Kcfactory(kcService: KeycloakService) {
     KeycloakAngularModule,
     BrowserAnimationsModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     {provide : APP_INITIALIZER, deps : [KeycloakService],useFactory : Kcfactory, multi : true},

@@ -1,5 +1,14 @@
-<p>project works!</p>
-<h1>Projects</h1>
-<ul>
-  <li *ngFor="let project of projects">{{ project.nomProjet }}</li>
-</ul>
+
+<div class="project_box">
+  <div style="border-bottom: 1px solid #3333331f;"><h3 class="project_titre">Projets</h3></div>
+  <div class="project_add_icon">
+    <a routerLink="/add"><span><img src="../../assets/img/add (1).png" style="max-width:9%;margin:0 10px;"></span>Créer un projet</a>
+  </div>
+  <ul class="list_of_project">
+    <li *ngFor="let project of projects">
+      <span class="project_title">{{ project.nomProjet }}</span>
+      <span class="date_project">{{project.dateCreation | date}}</span>
+    </li>
+  </ul>
+</div>
+
