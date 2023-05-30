@@ -20,7 +20,7 @@ export function Kcfactory(kcService: KeycloakService) {
    kcService.init({
 
       config: {
-        url: 'http://localhost:8081/auth/',
+        url: 'http://localhost:8080/auth/',
         realm: 'ppl',
         clientId:'ppl',
 
