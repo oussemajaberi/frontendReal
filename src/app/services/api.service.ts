@@ -45,8 +45,10 @@
       }
 
       /*this is getproject by id */
-      getProjectById(projectId: number) {
-        const url = `${this.baseUrl}/${projectId}`;
-        return this.http.get(url);
+
+
+      /*get project by id */
+      getProjectDetails(projetId?: number): Observable<any> {
+        return this.http.get(`${this.baseUrl}/projects/${projetId}`);
       }
     }

@@ -6,7 +6,7 @@
   </div>
   <ul class="list_of_project">
     <li *ngFor="let project of projects">
-      <span class="project_title">{{ project.nomProjet }}</span>
+      <span [routerLink]="['/projects', project.projetId]" class="project_title">{{ project.nomProjet }}</span>
       <span class="date_project">{{project.dateCreation | date}}</span>
     </li>
   </ul>

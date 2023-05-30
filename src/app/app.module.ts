@@ -15,6 +15,7 @@ import { TaskComponent } from './task/task.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectIdComponent } from './project-id/project-id.component';
+import { PhasesComponent } from './phases/phases/phases.component';
 export function Kcfactory(kcService: KeycloakService) {
   return () =>
    kcService.init({
@@ -42,7 +43,8 @@ export function Kcfactory(kcService: KeycloakService) {
     ProjectComponent,
     TaskComponent,
     AddProjectComponent,
-    ProjectIdComponent
+    ProjectIdComponent,
+    PhasesComponent
   ],
   imports: [
     BrowserModule,

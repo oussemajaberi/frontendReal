@@ -1,0 +1,80 @@
+.principal_box
+{
+  display: flex;
+}
+app-sidenav
+{
+  flex: 0 0 18%;
+  height: 100vh ;
+  .sidenav_principal
+  {
+    height: 100vh;
+
+  }
+}
+.second_principal_element
+{
+  flex: 0 0 82%;
+  background-color: #EFF1F1;
+  padding: 0 25px;
+}
+.project_stats
+{
+  .Les_phases
+  {
+    background-color: #fff;
+    width: 33%;
+    padding: 21px 25px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+  }
+  .Les_phases_box
+  {
+    background-color: #c3b9f0;
+    padding: 13px 25px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .Les_phases_box h3
+  {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .Les_phases_box p
+  {
+    font-size: 13px;
+  }
+  .espace_phases_box
+  {
+    flex-grow: 3;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.project_stats
+{
+  display: flex;
+}
+.left_side_stats_box
+{
+  display: flex;
+  flex-grow: 7;
+  flex-direction: column;
+}
+.link_details_stats_box
+{
+          border: 2px solid #65656545;
+          padding: 8px 12px;
+          max-width: 60%;
+          border-radius: 10px;
+          text-align: center;
+          color: #45ccbe;
+          text-decoration: none;
+          margin-top:3px;
+}
