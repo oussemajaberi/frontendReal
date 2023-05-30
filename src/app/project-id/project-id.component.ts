@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { Project } from '../model/project.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-project-id',
@@ -8,22 +8,27 @@ import { Project } from '../model/project.model';
   styleUrls: ['./project-id.component.css']
 })
 export class ProjectIdComponent implements OnInit {
-  project?:any;
+  project!: any;
 
-  constructor(private apiservice:ApiService) { }
+  constructor(private apiService: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      const projetId = Number(params.get('projetId'));
+        this.loadProjectDetails(projetId);
+
+    });
   }
-  onProjectClick(projectId: number) {
-    this.apiservice.getProjectById(projectId).subscribe(
-      (data) => {
-        this.project = data;
-        console.log(this.project); // Do something with the project data
+
+  loadProjectDetails(projetId: number) {
+    this.apiService.getProjectDetails(projetId).subscribe(
+      (response) => {
+        this.project = response;
+        console.log("eeeeeeeeeeeeee");
       },
       (error) => {
-        console.error(error);
+        console.log('An error occurred:', error);
       }
     );
   }
-
 }
