@@ -6,11 +6,11 @@ import { ProjectIdComponent } from './project-id/project-id.component';
 import { PhasesComponent } from './phases/phases/phases.component';
 
 const routes: Routes = [
-  { path: 'add', component: AddProjectComponent },
-  //{ path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '', component: HomeComponent },
+  { path: 'add-project', component: AddProjectComponent },
   { path: 'projects/:projetId', component: ProjectIdComponent },
-  { path: 'phases', component: PhasesComponent },
+  { path: 'phases/:projetId', component: PhasesComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

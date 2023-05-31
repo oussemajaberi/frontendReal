@@ -3,8 +3,8 @@
   <div class="second_principal_element">
     <h2>Project Details</h2>
     <div *ngIf="project">
-      <h3>{{ project.nomProjet }}</h3>
-      <p>{{ project.descriptionProjet }}</p>
+      <h3>{{ project?.nomProjet }}</h3>
+      <p>{{ project?.descriptionProjet }}</p>
     </div>
     <div class="project_stats">
       <!--Les taches box-->
@@ -14,7 +14,7 @@
             <span><img style="width:30px;" src="../../assets/img/task-list.png"></span>
             <h3 class="mx-2" style="flex-grow: 6;font-weight: 500;">Taches</h3>
           </div>
-          <a class="link_details_stats_box">Details</a>
+          <a [routerLink]="['/phases', project?.projetId]" class="link_details_stats_box">Details</a>
         </div>
         <div  class="espace_phases_box">
           <div class="Les_phases_box"><h3>12</h3><p>Terminé</p></div>
@@ -29,16 +29,13 @@
             <span><img style="width:30px;" src="../../assets/img/projet.png"></span>
             <h3 class="mx-2" style="flex-grow: 6;font-weight: 500;">Phases</h3>
           </div>
-          <a [routerLink]="['/phases']" class="link_details_stats_box">Details</a>
+          <a [routerLink]="['/phases', project?.projetId]" class="link_details_stats_box">Details</a>
         </div>
         <div  class="espace_phases_box" >
           <div class="Les_phases_box" style="background-color:#E0F58E"><h3>12</h3><p>En totale</p></div>
           <div class="Les_phases_box" style="background-color:#bebebe88;"><h3>3</h3><p>Ajouter</p></div>
         </div>
       </div>
-
     </div>
   </div>
-
 </div>
-
