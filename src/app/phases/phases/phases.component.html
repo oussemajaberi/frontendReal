@@ -1,11 +1,24 @@
 
-  <h2>Phases</h2> 
-  <div class="parent">
-  <div  class="" *ngFor="let phase of phases"> 
-     <div style="width:350px;height:300px;margin:25PX 50px;background-color: antiquewhite;padding: 30px;">
-       <h3>{{ phase.nom }}</h3>
-     </div> 
-    <!-- Display other phase details here -->
-  </div> 
+<div>
+  <div class="phases_box_parent">
+    <div class="phases_box" *ngFor="let phase of phases">
+      <div class="phases_box_header">
+        <div class="phases_box_header_info">
+          <h3 style="font-size: 18px;font-weight: 500;">{{ phase.nom }}</h3>
+          <div class="phases_box_general_info"><p>Commence le<p style="    margin: -8px 0;">26/05/2023</p></div>
+        </div>
+        <div class="phases_box_header_stats">
+          <img src="../../../assets/img/pie-graph.png">
+        </div>
+      </div>
+
+      <div>
+        <ul>
+          <li *ngFor="let tache of phase.taches">{{ tache.nomTache }}</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 </div>
 
