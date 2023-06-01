@@ -10,7 +10,7 @@ import { PhaseService } from './phase-service.service';
 })
 export class PhasesComponent implements OnInit {
   projectId!: number;
-  phases!: any;
+  phases: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -21,14 +21,27 @@ export class PhasesComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.projectId = +params['projetId'];
       this.fetchPhases();
+
     });
   }
 
   fetchPhases(): void {
     this.phaseService.getPhasesByProjectId(this.projectId)
-      .subscribe(
-        phases => this.phases = phases,
-        error => console.error(error)
-      );
+    .subscribe(
+      phases => {
+        this.phases = phases;
+        this.loadTachesForPhases();
+      },
+      error => console.error(error)
+    );
   }
+  loadTachesForPhases(): void {
+    for (const phase of this.phases) {
+      this.phaseService.getTachesByPhaseId(phase.id)
+        .subscribe(
+          taches => phase.taches = taches,
+          error => console.error(error)
+        );
+    }
+}
 }
