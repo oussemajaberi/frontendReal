@@ -16,6 +16,7 @@ import { AddProjectComponent } from './add-project/add-project.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectIdComponent } from './project-id/project-id.component';
 import { PhasesComponent } from './phases/phases/phases.component';
+import { ProjectTasksComponent } from './project-tasks/project-tasks.component';
 export function Kcfactory(kcService: KeycloakService) {
   return () =>
    kcService.init({
@@ -28,7 +29,7 @@ export function Kcfactory(kcService: KeycloakService) {
 
       },
       initOptions: {
-        onLoad: 'login-required',
+        onLoad: 'check-sso',
         checkLoginIframe:true
 
       },
@@ -44,7 +45,8 @@ export function Kcfactory(kcService: KeycloakService) {
     TaskComponent,
     AddProjectComponent,
     ProjectIdComponent,
-    PhasesComponent
+    PhasesComponent,
+    ProjectTasksComponent
   ],
   imports: [
     BrowserModule,
