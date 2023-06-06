@@ -19,7 +19,6 @@
           <td [ngClass]="{'text-success': task.status === 'completed', 'text-danger': task.status === 'pending'}">
             {{ task.status }}
           </td>
-          <td [ngClass]="getDifficultyClass(task.nivTache)">{{ task.nivTache }}</td>
           <td>{{task.user?.first_name }}</td>
 
           <!-- Display other task details as needed -->

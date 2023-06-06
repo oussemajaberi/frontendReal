@@ -8,6 +8,8 @@
     @Injectable({ providedIn: 'root' })
     export class ApiService {
       private baseUrl = 'http://localhost:9091';
+      private apiUrl = 'http://localhost:9091/projects';
+
       constructor(
         private http: HttpClient,
         private securityService: SecurityService,
@@ -50,6 +52,18 @@
       /*get project by id */
       getProjectDetails(projetId?: number): Observable<any> {
         return this.http.get(`${this.baseUrl}/projects/${projetId}`);
+      }
+      getTaskCount(projectId: number): Observable<number> {
+        const url = `${this.apiUrl}/${projectId}/taskcount`;
+        return this.http.get<number>(url);
+      }
+      getTaskCountEncours(projectId: number): Observable<number> {
+        const url = `${this.apiUrl}/${projectId}/tasktEncours`;
+        return this.http.get<number>(url);
+      }
+      getPhasesTotal(projectId: number): Observable<number> {
+        const url = `${this.apiUrl}/${projectId}/phasecount`;
+        return this.http.get<number>(url);
       }
       
     }

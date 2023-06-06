@@ -29,7 +29,7 @@ export function Kcfactory(kcService: KeycloakService) {
 
       },
       initOptions: {
-        onLoad: 'check-sso',
+        onLoad: 'login-required',
         checkLoginIframe:true
 
       },

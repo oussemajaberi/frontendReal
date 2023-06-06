@@ -13,7 +13,8 @@ export class ProjectTasksComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private taskService: TaskService
+    private taskService: TaskService,
+
   ) {}
 
   ngOnInit(): void {
@@ -23,26 +24,16 @@ export class ProjectTasksComponent implements OnInit {
     });
   }
 
-  loadTasks() {
+ loadTasks() {
     this.taskService.getTasksByProject(this.projectId).subscribe(
       (response) => {
         this.tasks = response;
+  
       },
       (error) => {
         console.error(error);
       }
     );
   }
-  getDifficultyClass(difficulty: string): string {
-    switch (difficulty) {
-      case 'easy':
-        return 'easy';
-      case 'medium':
-        return 'medium';
-      case 'hard':
-        return 'hard';
-      default:
-        return '';
-    }
-  }
+
 }

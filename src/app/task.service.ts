@@ -55,9 +55,9 @@ export class TaskService {
     const url = `${this.apiUrl}/${projectId}/tasks`;
     return this.http.get<Tache[]>(url);
   }
-
-  getNombreTaches(): Observable<number> {
-    const url = `${this.apiUrl}/count`;
+  getNumberOfTasksForProject(projectId: number): Observable<number> {
+    const url = `${this.apiUrl}/count?projectId=${projectId}`;
     return this.http.get<number>(url);
   }
+ 
 }
