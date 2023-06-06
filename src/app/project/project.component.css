@@ -1,7 +1,7 @@
 .project_box
 {
 
-  min-width: 500px;
+  width: 550px;
   height: 400px;
   background-color: white;
   border-radius: 10px;
@@ -49,4 +49,13 @@
 
   }
 
+}
+.pagination_de_projet
+{
+  display: flex;
+  justify-content: center;
+}
+.ngx-pagination .current
+{
+  border-radius: 8px !important;
 }

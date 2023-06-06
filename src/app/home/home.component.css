@@ -25,7 +25,7 @@
 }
 .sidenav_principal
 {
-  height:90vh;
+  height:calc(100vh - 70px);
   width:20% ;
   background-color: #263238;
   padding: 15px 25px;
@@ -69,9 +69,31 @@ app-sidenav
 }
 .stats_content
 {
-  flex: 0 0 80%;
+  flex: 0 0 82%;
   display: flex;
-  justify-content: center;
-  margin: 50px 0;
+  flex-direction: column;
+  margin: 15px 0;
 }
+.barre_info_personnel
+{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+
+}
+.personnel_name
+{
+  font-size: 25px !important;
+}
+.barre_de_tache_personnel
+{
+  width:400px;
+  height: 48px;
+  border-radius: 60px;
+  background-color: #fefefe;
+  padding:15px 20px;
+}
+
 

@@ -17,19 +17,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectIdComponent } from './project-id/project-id.component';
 import { PhasesComponent } from './phases/phases/phases.component';
 import { ProjectTasksComponent } from './project-tasks/project-tasks.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DatePipe } from '@angular/common';
 export function Kcfactory(kcService: KeycloakService) {
   return () =>
    kcService.init({
 
       config: {
-        url: 'http://localhost:8080/auth/',
+        url: 'http://localhost:8081/auth/',
         realm: 'ppl',
         clientId:'ppl',
 
 
       },
       initOptions: {
-        onLoad: 'check-sso',
+        onLoad: 'login-required',
         checkLoginIframe:true
 
       },
@@ -46,7 +50,8 @@ export function Kcfactory(kcService: KeycloakService) {
     AddProjectComponent,
     ProjectIdComponent,
     PhasesComponent,
-    ProjectTasksComponent
+    ProjectTasksComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -56,10 +61,14 @@ export function Kcfactory(kcService: KeycloakService) {
     MatIconModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatDialogModule,
+    NgxPaginationModule
   ],
   providers: [
     {provide : APP_INITIALIZER, deps : [KeycloakService],useFactory : Kcfactory, multi : true},
+    DatePipe
   ],
 
   bootstrap: [AppComponent]

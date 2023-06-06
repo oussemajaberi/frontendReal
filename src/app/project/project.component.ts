@@ -7,7 +7,13 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-  projects!: any[];
+  projects!: any;
+  title ='pagination';
+  POSTS:any;
+  page:number=1;
+  count:number=0;
+  tableSize:number=3;
+  tableSizes:any=[5,10,15,20];
   constructor(private apiService: ApiService ) { }
 
   ngOnInit(): void {
@@ -23,6 +29,15 @@ export class ProjectComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+  onprojectListChange(event:any):void {
+    this.tableSize=event.target.value;
+    this.page=1;
+    this.getProjectsFromAPI()
+  }
+  onprojectDataChange(event:any) {
+    this.page=event;
+    this.getProjectsFromAPI()
   }
 
 }

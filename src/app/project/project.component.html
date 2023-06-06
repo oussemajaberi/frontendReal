@@ -5,10 +5,22 @@
     <a routerLink="/add"><span><img src="../../assets/img/add (1).png" style="max-width:9%;margin:0 10px;"></span>Créer un projet</a>
   </div>
   <ul class="list_of_project">
-    <li *ngFor="let project of projects">
+    <li *ngFor="let project of projects | paginate: {
+      itemsPerPage: tableSize,
+      currentPage :page,
+       totalItems:count }; let i =index">
       <span [routerLink]="['/projects', project.projetId]" class="project_title">{{ project.nomProjet }}</span>
       <span class="date_project">{{project.dateCreation | date}}</span>
     </li>
   </ul>
+  <div class="pagination_de_projet">
+    <pagination-controls
+      previousLabel=""
+      nextLabel=""
+      (pageChange)="onprojectDataChange($event)"
+    ></pagination-controls>
+  </div>
+
 </div>
+
 

@@ -10,6 +10,8 @@ import { TaskService } from '../task.service';
 export class ProjectTasksComponent implements OnInit {
   projectId!: number;
   tasks!: any;
+  displayedColumns: string[] = ['nomTache', 'status', 'Difficulty', 'Phase'];
+  dataSource !:any;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,22 +29,12 @@ export class ProjectTasksComponent implements OnInit {
     this.taskService.getTasksByProject(this.projectId).subscribe(
       (response) => {
         this.tasks = response;
+        this.dataSource=this.tasks;
       },
       (error) => {
         console.error(error);
       }
     );
   }
-  getDifficultyClass(difficulty: string): string {
-    switch (difficulty) {
-      case 'easy':
-        return 'easy';
-      case 'medium':
-        return 'medium';
-      case 'hard':
-        return 'hard';
-      default:
-        return '';
-    }
-  }
+
 }

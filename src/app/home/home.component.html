@@ -9,12 +9,39 @@
 </div>
 -->
 <router-outlet></router-outlet>
-<app-navbar></app-navbar>
-<div class="content_comp" style="display:flex">
+
+<div class="content_comp" style="display:flex;background-color: #eff1f1;">
+
   <app-sidenav></app-sidenav>
-    <div class="stats_content">
-      <app-project></app-project>
-      <app-task></app-task>
+    <div class="stats_content" style="">
+      <div><app-navbar></app-navbar></div>
+      <div class="barre_info_personnel">
+        <p class="currentdate">{{ currentDate }}</p>
+        <h3 class="personnel_name">Bonjour, {{firstName}}</h3>
+        <div class="barre_de_tache_personnel" style="display: flex;justify-content: space-between;">
+          <div>
+            <select [(ngModel)]="selectedOption" style="border:none">
+              <option value="week">Mon semaine</option>
+              <option value="month">Mon mois</option>
+              <option value="day">Ma journee</option>
+            </select>
+          </div>
+          <div>
+            <span></span>
+            <p><span>0</span>Tache Terminé</p>
+          </div>
+          <div>
+            <span></span>
+            <p><span>0</span>Projet Créer</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="stats_content_box" style="display: flex;justify-content: center;">
+        <app-project></app-project>
+        <app-task></app-task>
+      </div>
+
     </div>
 
 
