@@ -15,7 +15,8 @@ export class ProjectTasksComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private taskService: TaskService
+    private taskService: TaskService,
+
   ) {}
 
   ngOnInit(): void {
@@ -25,10 +26,11 @@ export class ProjectTasksComponent implements OnInit {
     });
   }
 
-  loadTasks() {
+ loadTasks() {
     this.taskService.getTasksByProject(this.projectId).subscribe(
       (response) => {
         this.tasks = response;
+
         this.dataSource=this.tasks;
       },
       (error) => {
