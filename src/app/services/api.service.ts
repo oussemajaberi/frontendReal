@@ -3,6 +3,7 @@
     import { Observable, throwError } from "rxjs";
     import { SecurityService } from "./security.service";
     import {KeycloakEventType, KeycloakService} from "keycloak-angular";
+import { Utilisateur } from "../model/Utilisateur.model";
 
 
     @Injectable({ providedIn: 'root' })
@@ -65,8 +66,14 @@
         const url = `${this.apiUrl}/${projectId}/phasecount`;
         return this.http.get<number>(url);
       }
-
-      /*hethi gettaskbycreator */
+      getAllUsers(): Observable<Utilisateur[]> {
+        const url = `${this.baseUrl}/users/allusers`;
+        return this.http.get<Utilisateur[]>(url);
+      }
+      getAllEquipes(): Observable<Utilisateur[]> {
+        const url = `${this.baseUrl}/equipes/getAllEquipes`;
+        return this.http.get<Utilisateur[]>(url);
+      }
       getTasksUser(): Observable<any> {
         const headers = new HttpHeaders().set(
           'Authorization',
@@ -85,11 +92,9 @@
           headers,
         });
       }
-
       updateTaskStatus(taskId: number): Observable<string> {
         const url = `${this.baseUrl}/taches/${taskId}/status`;
         return this.http.put<string>(url, null);
       }
-
-
+ 
     }

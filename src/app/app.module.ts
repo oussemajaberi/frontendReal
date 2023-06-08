@@ -21,12 +21,13 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
+import { SearchPipe } from './project-id/search.pipe';
 export function Kcfactory(kcService: KeycloakService) {
   return () =>
    kcService.init({
 
       config: {
-        url: 'http://localhost:8081/auth/',
+        url: 'http://localhost:8080/auth/',
         realm: 'ppl',
         clientId:'ppl',
 
@@ -51,6 +52,7 @@ export function Kcfactory(kcService: KeycloakService) {
     ProjectIdComponent,
     PhasesComponent,
     ProjectTasksComponent,
+    SearchPipe
 
   ],
   imports: [

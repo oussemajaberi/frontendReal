@@ -78,3 +78,44 @@ app-sidenav
           text-decoration: none;
           margin-top:3px;
 }
+.search_user_box {
+  margin-bottom: 10px;
+}
+
+.search_user_box input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.add_user_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #bebebe88;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.add_user_button:hover {
+  background-color: #bebebe;
+}
+
+.user_list_box {
+  /* Your styles for the user list box */
+}
+
+.user_item_box {
+  /* Your styles for the user item box */
+}
+
+.user_box{
+margin-top: 50px;
+
+}
+

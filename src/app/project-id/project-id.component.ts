@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Utilisateur } from '../model/Utilisateur.model';
+import { SearchPipe } from './search.pipe';
 
 @Component({
   selector: 'app-project-id',
@@ -12,6 +14,13 @@ export class ProjectIdComponent implements OnInit {
   taskCount: number = 0; // Number of tasks variable
   taskCountEncours: number = 0; 
   phaseTotal: number = 0; 
+  users: Utilisateur[] = [];
+  searchQuery: string = '';
+  filteredUsers: Utilisateur[] = [];
+  searchText = '';
+  equipes!: any;
+
+
 
 
 
@@ -34,7 +43,8 @@ export class ProjectIdComponent implements OnInit {
         this.loadTaskCount(); // Call loadTaskCount here
         this.loadTaskCountEncours();
         this.loadPhaseesCount();
-
+        this.loadUsers();
+        this.loadEquipes();
         console.log("eeeeeeeeeeeeee");
       },
       (error) => {
@@ -80,4 +90,29 @@ export class ProjectIdComponent implements OnInit {
       }
     );
   }
+  loadUsers() {
+    this.apiService.getAllUsers().subscribe(
+      (users) => {
+        this.users = users;
+        this.filteredUsers = users; // Initialize filteredUsers with all users
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  loadEquipes() {
+    this.apiService.getAllEquipes().subscribe(
+      (equipes) => {
+        this.equipes = equipes;
+      
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+  
+  
 }

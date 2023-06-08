@@ -20,6 +20,7 @@
           <div class="Les_phases_box"><h3>{{ taskCount }}</h3><p>Totale</p></div>
           <div class="Les_phases_box" style="background-color:#bebebe88;"><h3>{{taskCountEncours}}</h3><p>En cours</p></div>
         </div>
+        
       </div>
 
       <!--les phases-->
@@ -36,6 +37,52 @@
           <div class="Les_phases_box" style="background-color:#bebebe88;"><h3>3</h3><p>Ajouter</p></div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </div>  
+    <div class="principal_box">
+      <!-- Other content here -->
+    
+      <div class="container p-5">
+        <input class="form-control form-control-sm" type="text" placeholder="Search" [(ngModel)]="searchText">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users | search: searchText">
+              <td>{{ user.email }}</td>
+              <td>{{ user.first_name }}</td>
+              <td>{{ user.last_name }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.phone }}</td>
+            </tr>
+            <tr *ngIf="users.length === 0">
+              <td colspan="5">No users found.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="container p-5">
+        <input class="form-control form-control-sm" type="text" placeholder="Search" [(ngModel)]="searchText">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Nom Equipes</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let equipes of equipes">
+              <td>{{ equipes.nomEquipe }}</td>
+  
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+      
