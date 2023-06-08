@@ -1,9 +1,12 @@
 <div class="task_box">
-  <h3 class="task_titre">Taches</h3>
+  <div style="border-bottom: 1px solid #3333331f;"><h3 class="task_titre">Mes Taches</h3></div>
   <div class="task_add_icon">
-    <a routerLink="/add"><span><img  style="max-width:9%;margin:0 10px;"></span>Créer une tache</a>
+    <a routerLink="/add"><span><img src="../../assets/img/add-button.png" style="max-width:8%;margin:0 10px;"></span>Créer une tache</a>
   </div>
-  <ul>
-    <p>Test</p>
+  <ul class="list_of_task">
+    <li *ngFor="let Tache of  Taches" >
+      <span><mat-icon class="check_task" (click)="updateTaskStatus(Tache.idTache)">check_circle_outline</mat-icon></span>
+      <span [routerLink]="" class="task_title" *ngIf="Tache.Situation !== 'Termine'">{{ Tache.nomTache }}</span>
+    </li>
   </ul>
 </div>

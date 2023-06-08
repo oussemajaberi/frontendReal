@@ -5,5 +5,6 @@ export interface Tache {
     status: string;
     nivTache: number;
     nomTache: string;
-    user: Utilisateur
+    user: Utilisateur;
+    dateCreation :Date;
   }

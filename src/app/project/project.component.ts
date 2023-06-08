@@ -18,6 +18,7 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProjectsFromAPI();
+
   }
 
   getProjectsFromAPI() {
@@ -30,6 +31,7 @@ export class ProjectComponent implements OnInit {
       }
     );
   }
+
   onprojectListChange(event:any):void {
     this.tableSize=event.target.value;
     this.page=1;

@@ -65,5 +65,31 @@
         const url = `${this.apiUrl}/${projectId}/phasecount`;
         return this.http.get<number>(url);
       }
-      
+
+      /*hethi gettaskbycreator */
+      getTasksUser(): Observable<any> {
+        const headers = new HttpHeaders().set(
+          'Authorization',
+          `Bearer ${this.securityService.token}`
+        );
+
+
+        const creatorId = this.keycloakservice.getKeycloakInstance().subject; // Retrieve the user ID
+
+        if (!creatorId) {
+          console.error('User ID is not available.'); // Log an error if the user ID is null
+          return throwError('User ID is not available.');
+        }
+
+        return this.http.get<any>(`${this.baseUrl}/taches/creator/${creatorId}`, {
+          headers,
+        });
+      }
+
+      updateTaskStatus(taskId: number): Observable<string> {
+        const url = `${this.baseUrl}/taches/${taskId}/status`;
+        return this.http.put<string>(url, null);
+      }
+
+
     }

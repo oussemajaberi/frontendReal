@@ -11,13 +11,14 @@
 
   .project_titre{
      font-size: 20px;
-     font-weight: 500;
+     font-weight: 400;
+     font-family: 'Lexend', sans-serif !important;
   }
   .project_add_icon
   {
     margin-top: 20px;
     margin-bottom: 7%;
-    padding: 0 20px;
+    padding: 0 15px;
     color:#3f3f3f
   }
   .project_add_icon:hover
@@ -45,7 +46,10 @@
   }
   .list_of_project li .project_title
   {
-    font-size: 17px;
+    font-size: 16px;
+    color: #333333dd;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
 
   }
 
@@ -55,7 +59,20 @@
   display: flex;
   justify-content: center;
 }
-.ngx-pagination .current
-{
-  border-radius: 8px !important;
+.ngx-pagination {
+  padding-left: 0px !important;
+}
+
+:host /deep/.ngx-pagination .current,
+.btn-info {
+  background-color: #c3b9f0 !important;
+  border: transparent !important;
+  border-radius: 20px !important;
+}
+
+:host /deep/.ngx-pagination .current:hover {
+  background: #c3b9f0 !important;
+  border-radius: 20px;
+  cursor: pointer;
+  border: transparent;
 }

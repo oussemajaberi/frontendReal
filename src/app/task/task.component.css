@@ -24,3 +24,54 @@
   }
 
 }
+.task_titre
+{
+
+}
+.task_add_icon
+{
+  margin-top: 20px;
+  margin-bottom: 7%;
+  padding: 0 15px;
+  color: #3f3f3f;
+}
+.list_of_task li
+  {
+    list-style-type: none;
+    padding: 15px 10px;
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #3333331a;
+    font-family: 'Lexend', sans-serif;
+  }
+  .list_of_task li .date_task
+  {
+    font-size: 13px;
+    font-weight: 300;
+  }
+  .list_of_task li .task_title
+  {
+    font-size: 16px;
+    color: #333333dd;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
+
+  }
+  .list_of_task .check_task
+  {
+    color:#333333dd;
+    margin-right: 5px;
+    font-size: 22px;
+  }
+  .list_of_task .check_task:hover
+  {
+    cursor: pointer;
+  }
+  .list_of_task :hover
+  {
+    border:none;
+    background-color: #f1f1f1c5;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+

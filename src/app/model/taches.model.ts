@@ -6,4 +6,6 @@ export interface Tache {
   nivTache: string;
   nomTache: string;
   user: string;
+  Situation:string;
+  dateCreation :Date;
 }
