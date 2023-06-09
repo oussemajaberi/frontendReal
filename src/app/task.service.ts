@@ -59,5 +59,5 @@ export class TaskService {
     const url = `${this.apiUrl}/count?projectId=${projectId}`;
     return this.http.get<number>(url);
   }
- 
+
 }

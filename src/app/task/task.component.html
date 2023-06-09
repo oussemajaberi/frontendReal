@@ -19,5 +19,13 @@
       </div>
     </li>
   </div>
+  <ul class="list_of_task">
+    <li *ngFor="let Tache of  Taches" >
+      <span>
+        <mat-icon class="check_task" (click)="updateTaskStatus(Tache.idTache)">check_circle_outline</mat-icon>
+      </span>
+      <span [routerLink]="" class="task_title" *ngIf="Tache.Situation !== 'Termine'">{{ Tache.nomTache }}</span>
+    </li>
+
   </ul>
 </div>

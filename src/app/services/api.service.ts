@@ -96,11 +96,5 @@ import { Utilisateur } from "../model/Utilisateur.model";
         const url = `${this.baseUrl}/taches/${taskId}/status`;
         return this.http.put<string>(url, null);
       }
-      fetchCompletedTasksCountApi() {
-        const creatorId = this.keycloakservice.getKeycloakInstance().subject; 
-        this.http
-          .get<any>(`http://localhost:9091/taches/nb-taches-termine/${creatorId}`)
-          
-        }
  
     }
