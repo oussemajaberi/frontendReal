@@ -21,6 +21,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
+import Chart from 'chart.js/auto';
+import { ChartjsModule } from '@ctrl/ngx-chartjs';
+
+
 import { SearchPipe } from './project-id/search.pipe';
 export function Kcfactory(kcService: KeycloakService) {
   return () =>
@@ -66,7 +70,10 @@ export function Kcfactory(kcService: KeycloakService) {
     FormsModule,
     MatTableModule,
     MatDialogModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ChartjsModule,
+    ChartjsModule
+    
   ],
   providers: [
     {provide : APP_INITIALIZER, deps : [KeycloakService],useFactory : Kcfactory, multi : true},

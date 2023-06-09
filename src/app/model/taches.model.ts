@@ -1,3 +1,4 @@
+import { Situation } from "./Situation.model";
 import { Phase } from "./phase.model";
 
 export interface Tache {
@@ -6,6 +7,6 @@ export interface Tache {
   nivTache: string;
   nomTache: string;
   user: string;
-  Situation:string;
+  Situation:Situation;
   dateCreation :Date;
 }

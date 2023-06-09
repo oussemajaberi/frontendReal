@@ -19,4 +19,7 @@ export class PhaseService {
   getTachesByPhaseId(phaseId: number) {
     return this.http.get(`${this.baseUrl}/phases/${phaseId}/get`);
   }
+  getProgressPhase(phaseId: number) {
+    return this.http.get(`${this.baseUrl}/phases/${phaseId}/progress`);
+  }
 }

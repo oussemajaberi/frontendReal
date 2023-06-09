@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { Tache } from '../model/taches.model';
 
 @Component({
   selector: 'app-task',
@@ -17,8 +18,9 @@ export class TaskComponent implements OnInit {
 
   getTachesFromAPI() {
     this.apiService.getTasksUser().subscribe(
-      (response) => {
-        this.Taches = response;
+      (response: Tache[]) => {
+        this.Taches = response.filter((t: any) => t.situation === 'EnCours');
+        console.log(this.Taches);
       },
       (error) => {
         console.error(error);
@@ -30,11 +32,12 @@ export class TaskComponent implements OnInit {
     this.apiService.updateTaskStatus(taskId).subscribe(
       () => {
         console.log("Task status updated successfully.");
-        this.Taches = this.Taches.filter((t:any) => t.idTache !== taskId);
+        this.Taches = this.Taches.filter((t: Tache) => t.idTache !== taskId);
       },
       (error) => {
         console.error(error);
       }
     );
+    window.location.reload();
   }
 }
