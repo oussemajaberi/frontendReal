@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-
+import { Tache } from "../model/taches.model";
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',

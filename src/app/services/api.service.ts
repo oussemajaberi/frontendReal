@@ -96,5 +96,10 @@ import { Utilisateur } from "../model/Utilisateur.model";
         const url = `${this.baseUrl}/taches/${taskId}/status`;
         return this.http.put<string>(url, null);
       }
- 
+
+      assignUserToProject(projectId: number, userId: string) {
+        const url = `${this.baseUrl}/projects/${projectId}/assign-user/${userId}`;
+        return this.http.post(url, {});
+      }
+
     }
