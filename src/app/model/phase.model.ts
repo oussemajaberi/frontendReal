@@ -3,7 +3,6 @@ import { Tache } from "./taches.model";
 export interface Phase {
 
     id: number;
-    name: string;
-    taches?: Tache[];
+    nom: string;
     // Other properties of the Phase entity
   }

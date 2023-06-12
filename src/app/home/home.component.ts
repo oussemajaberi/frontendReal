@@ -33,9 +33,9 @@ export class HomeComponent implements OnInit {
       this.firstName = profile.firstName;
       this.lastName = profile.lastName;
       this.fetchCompletedTasksCount();
-  
+
       });
-    
+
 
     this.fetchCompletedTasksCount();
 
@@ -51,6 +51,5 @@ export class HomeComponent implements OnInit {
   onTasksUpdated(): void {
     this.fetchCompletedTasksCount();
   }
-    
 
 }

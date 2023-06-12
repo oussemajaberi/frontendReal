@@ -74,4 +74,33 @@
     cursor: pointer;
     border-radius: 5px;
   }
+  .Add_your_task
+  {
+    width: 90%;
+    margin-left: 39px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #3333331a;
+  }
+  .Add_your_task input
+  {
+    border: none;
+    padding: 15px 10px;
+    display: flex;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Lexend', sans-serif;
+  }
+  .Add_your_task input:focus
+  {
+    outline: none;
+  }
+  .check_task {
+    color: #75758b;
+  }
+
+  .check_task:hover {
+    color: green;
+  }
 

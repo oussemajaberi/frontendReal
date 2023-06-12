@@ -8,24 +8,23 @@
       Créer une tache
     </a>
   </div>
-  <ul class="list_of_task"> 
+  <div class="Add_your_task">
+    <span>
+      <mat-icon style="color:#75758b">check_circle_outline</mat-icon>
+    </span>
+      <form [formGroup]="taskForm">
+        <input type="text" formControlName="nomTache" placeholder="Click Here To Add Task" (keyup.enter)="addTask()" (keyup)="handleKeyPress($event)">
+      </form>
+  </div>
+  <ul class="list_of_task">
     <div *ngFor="let Tache of Taches ">
     <li>
       <div *ngIf="Tache.situation === 'EnCours'">
         <span>
-          <mat-icon class="check_task" (click)="updateTaskStatus(Tache.idTache)">check_circle_outline</mat-icon>
+          <mat-icon class="check_task" (click)="updateTaskStatus(Tache.idTache)"  (mouseenter)="hoverCheckIcon = true" (mouseleave)="hoverCheckIcon = false">check_circle_outline</mat-icon>
         </span>
-        <span [routerLink]="''" class="task_title">{{ Tache.nomTache }}</span>
+        <span [routerLink]="''" class="task_title" (click)="openTaskDialog(Tache.idTache)">{{ Tache.nomTache }}</span>
       </div>
     </li>
   </div>
-  <ul class="list_of_task">
-    <li *ngFor="let Tache of  Taches" >
-      <span>
-        <mat-icon class="check_task" (click)="updateTaskStatus(Tache.idTache)">check_circle_outline</mat-icon>
-      </span>
-      <span [routerLink]="" class="task_title" *ngIf="Tache.Situation !== 'Termine'">{{ Tache.nomTache }}</span>
-    </li>
 
-  </ul>
-</div>

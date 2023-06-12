@@ -21,11 +21,13 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
-import Chart from 'chart.js/auto';
-import { ChartjsModule } from '@ctrl/ngx-chartjs';
-
-
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 import { SearchPipe } from './project-id/search.pipe';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 export function Kcfactory(kcService: KeycloakService) {
   return () =>
    kcService.init({
@@ -56,7 +58,8 @@ export function Kcfactory(kcService: KeycloakService) {
     ProjectIdComponent,
     PhasesComponent,
     ProjectTasksComponent,
-    SearchPipe
+    SearchPipe,
+    TaskDialogComponent
 
   ],
   imports: [
@@ -71,9 +74,14 @@ export function Kcfactory(kcService: KeycloakService) {
     MatTableModule,
     MatDialogModule,
     NgxPaginationModule,
-    ChartjsModule,
-    ChartjsModule
-    
+    MatOptionModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatSelectModule
+
+
+
   ],
   providers: [
     {provide : APP_INITIALIZER, deps : [KeycloakService],useFactory : Kcfactory, multi : true},

@@ -4,6 +4,7 @@
     import { SecurityService } from "./security.service";
     import {KeycloakEventType, KeycloakService} from "keycloak-angular";
 import { Utilisateur } from "../model/Utilisateur.model";
+import { Tache } from "../model/taches.model";
 
 
     @Injectable({ providedIn: 'root' })
@@ -48,6 +49,7 @@ import { Utilisateur } from "../model/Utilisateur.model";
       }
 
       /*this is getproject by id */
+
 
 
       /*get project by id */
@@ -96,5 +98,24 @@ import { Utilisateur } from "../model/Utilisateur.model";
         const url = `${this.baseUrl}/taches/${taskId}/status`;
         return this.http.put<string>(url, null);
       }
- 
+      assignUserToProject(projectId: number, userId: string) {
+        const url = `${this.baseUrl}/projects/${projectId}/assign-user/${userId}`;
+        return this.http.post(url, {});
+      }
+
+      /*add a task */
+      addTache(tache?: any): Observable<any>  {
+        const createdBy = this.keycloakservice.getKeycloakInstance().subject;
+        const url = `${this.baseUrl}/taches/addTacheToCreator/${createdBy}`;
+        const headers = new HttpHeaders()
+          .set('Authorization', 'Bearer ${this.securityService.token}'); // Replace with your access token from Keycloak
+          return this.http.post(url, tache, { headers });
+      }
+
+      getTaskById(taskId: number): Observable<Tache> {
+        const apiUrl = `${this.baseUrl}/taches/${taskId}`;
+        return this.http.get<Tache>(apiUrl);
+      }
+
+
     }
