@@ -1,5 +1,5 @@
 export enum Situation {
-  Termine="Termine",
-  EnCours="EnCours",
-  Pause="Pause"
+  Termine = 'Terminé',
+  EnCours = 'EnCours',
+  EnRetard = 'EnRetard'
 }

@@ -28,6 +28,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { SearchPipe } from './project-id/search.pipe';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 export function Kcfactory(kcService: KeycloakService) {
   return () =>
    kcService.init({
@@ -78,7 +79,8 @@ export function Kcfactory(kcService: KeycloakService) {
     MatFormFieldModule,
     MatAutocompleteModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonToggleModule
 
 
 

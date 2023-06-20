@@ -10,6 +10,7 @@ export class ProjectComponent implements OnInit {
   projects!: any;
   title ='pagination';
   POSTS:any;
+  hexCodes: string[] = ['#37CAB9', '#c0b5ee', '#E0f58e','#0d141c'];
   page:number=1;
   count:number=0;
   tableSize:number=3;
@@ -40,6 +41,10 @@ export class ProjectComponent implements OnInit {
   onprojectDataChange(event:any) {
     this.page=event;
     this.getProjectsFromAPI()
+  }
+  gethexcodecolor():string{
+    const randomIndex = Math.floor(Math.random() * this.hexCodes.length);
+    return this.hexCodes[randomIndex];
   }
 
 }
