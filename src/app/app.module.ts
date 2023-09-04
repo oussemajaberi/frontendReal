@@ -29,14 +29,16 @@ import {MatSelectModule} from '@angular/material/select';
 import { SearchPipe } from './project-id/search.pipe';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { WebSocketService } from './web-socket.service';
 export function Kcfactory(kcService: KeycloakService) {
   return () =>
    kcService.init({
 
       config: {
-        url: 'http://localhost:8081/auth/',
+        url: 'http://localhost:8080/auth/',
         realm: 'ppl',
         clientId:'ppl',
+        
 
 
       },
@@ -60,7 +62,7 @@ export function Kcfactory(kcService: KeycloakService) {
     PhasesComponent,
     ProjectTasksComponent,
     SearchPipe,
-    TaskDialogComponent
+    TaskDialogComponent,
 
   ],
   imports: [
@@ -87,7 +89,7 @@ export function Kcfactory(kcService: KeycloakService) {
   ],
   providers: [
     {provide : APP_INITIALIZER, deps : [KeycloakService],useFactory : Kcfactory, multi : true},
-    DatePipe
+    DatePipe,WebSocketService
   ],
 
   bootstrap: [AppComponent]

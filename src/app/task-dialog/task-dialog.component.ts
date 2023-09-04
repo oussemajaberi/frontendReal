@@ -78,7 +78,7 @@ onProjectSelected(event: MatSelectChange): void {
 
 getPhasesByProjectId(projectId: number): void {
   console.log("projectiiiiiiid"+ projectId)
-  const url = `http://localhost:9091/phases/getFromProject/${projectId}`;
+  const url = `http://localhost:9097/phases/getFromProject/${projectId}`;
   this.httpClient.get(url).subscribe(
     (response: Phase[]) => {
       // Handle the response and extract the list of phases
@@ -99,7 +99,7 @@ getPhasesByProjectId(projectId: number): void {
 
 
 assignTaskToProjectAndPhase(tacheId: number, projetId: number, phaseId?: number): void {
-  const url = `http://localhost:9091/taches/assignToProjetPhase/${tacheId}/${projetId}/${phaseId || ''}`;
+  const url = `http://localhost:9096/taches/assignToProjetPhase/${tacheId}/${projetId}/${phaseId || ''}`;
   this.httpClient.post(url, {}).subscribe(
     (response) => {
       // Handle the response if needed

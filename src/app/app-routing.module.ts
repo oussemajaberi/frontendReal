@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'phases/:projetId', component: PhasesComponent },
   { path: 'projects/:projetId/tasks', component: ProjectTasksComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
+  
 ];
 
 @NgModule({

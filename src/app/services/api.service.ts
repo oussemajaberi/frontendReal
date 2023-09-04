@@ -9,8 +9,15 @@ import { Tache } from "../model/taches.model";
 
     @Injectable({ providedIn: 'root' })
     export class ApiService {
-      private baseUrl = 'http://localhost:9091';
-      private apiUrl = 'http://localhost:9091/projects';
+      private baseUrl = 'http://localhost:9095';
+      private baseUrl1 = 'http://localhost:9096';
+
+      private apiUrl = 'http://localhost:9095/projects';
+      private apiUrl1 = 'http://localhost:9096/taches';
+      private apiUrlPhase = 'http://localhost:9097/phases';
+
+
+      
 
       constructor(
         private http: HttpClient,
@@ -56,16 +63,16 @@ import { Tache } from "../model/taches.model";
       getProjectDetails(projetId?: number): Observable<any> {
         return this.http.get(`${this.baseUrl}/projects/${projetId}`);
       }
-      getTaskCount(projectId: number): Observable<number> {
-        const url = `${this.apiUrl}/${projectId}/taskcount`;
+      getTaskCount(projeId: number): Observable<number> {
+        const url = `${this.apiUrl1}/${projeId}/taskcount`;
         return this.http.get<number>(url);
       }
-      getTaskCountEncours(projectId: number): Observable<number> {
-        const url = `${this.apiUrl}/${projectId}/tasktEncours`;
+      getTaskCountEncours(projeId: number): Observable<number> {
+        const url = `${this.apiUrl1}/countEnCours/${projeId}`;
         return this.http.get<number>(url);
       }
-      getPhasesTotal(projectId: number): Observable<number> {
-        const url = `${this.apiUrl}/${projectId}/phasecount`;
+      getPhasesTotal(projeId: number): Observable<number> {
+        const url = `${this.apiUrlPhase}/count/${projeId}`;
         return this.http.get<number>(url);
       }
       getAllUsers(): Observable<Utilisateur[]> {
@@ -106,14 +113,14 @@ import { Tache } from "../model/taches.model";
       /*add a task */
       addTache(tache?: any): Observable<any>  {
         const createdBy = this.keycloakservice.getKeycloakInstance().subject;
-        const url = `${this.baseUrl}/taches/addTacheToCreator/${createdBy}`;
+        const url = `${this.baseUrl1}/taches/addTacheToCreator/${createdBy}`;
         const headers = new HttpHeaders()
           .set('Authorization', 'Bearer ${this.securityService.token}'); // Replace with your access token from Keycloak
           return this.http.post(url, tache, { headers });
       }
 
       getTaskById(taskId: number): Observable<Tache> {
-        const apiUrl = `${this.baseUrl}/taches/${taskId}`;
+        const apiUrl = `${this.baseUrl1}/taches/${taskId}`;
         return this.http.get<Tache>(apiUrl);
       }
 
