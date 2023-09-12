@@ -23,6 +23,7 @@ export class ProjectTasksComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.projectId = Number(params.get('projetId'));
       this.loadTasks();
+
     });
   }
 

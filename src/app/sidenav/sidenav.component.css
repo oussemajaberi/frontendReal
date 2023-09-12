@@ -40,6 +40,7 @@ transition: all .5s ease;
 position: fixed;
 z-index: 1;
 top:0;
+left: 0;
 width:16.5625rem;
 height: 100vh;
 box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
@@ -125,4 +126,8 @@ box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
       color: #000;
     }
   }
+  
+}
+.sidenav-collapsed {
+  width: 4rem; /* Adjust this value to your preference for the collapsed state */
 }

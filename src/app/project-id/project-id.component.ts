@@ -32,7 +32,10 @@ export class ProjectIdComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const projetId = Number(params.get('projetId'));
+      
         this.loadProjectDetails(projetId);
+        console.log('aavacaff'+projetId)
+        
 
 
     });
@@ -42,9 +45,9 @@ export class ProjectIdComponent implements OnInit {
     this.apiService.getProjectDetails(projetId).subscribe(
       (response) => {
         this.project = response;
-        this.loadTaskCount(); // Call loadTaskCount here
-        this.loadTaskCountEncours();
-        this.loadPhaseesCount();
+        this.loadTaskCount(projetId); // Call loadTaskCount here
+        this.loadTaskCountEncours(projetId);
+        this.loadPhaseesCount(projetId);
         this.loadUsers();
         this.loadEquipes();
         console.log("eeeeeeeeeeeeee");
@@ -55,10 +58,9 @@ export class ProjectIdComponent implements OnInit {
     );
 
   }
-  loadTaskCount() {
-    const projectId = this.project.projetId; // Assuming the project object is available
+  loadTaskCount(projetId: number) {
 
-    this.apiService.getTaskCount(projectId).subscribe(
+    this.apiService.getTaskCount(projetId).subscribe(
       (count) => {
         this.taskCount = count;
       },
@@ -68,10 +70,9 @@ export class ProjectIdComponent implements OnInit {
     );
   }
 
-  loadTaskCountEncours() {
-    const projectId = this.project.projetId; // Assuming the project object is available
-
-    this.apiService.getTaskCountEncours(projectId).subscribe(
+  loadTaskCountEncours(projetId: number) {
+    
+    this.apiService.getTaskCountEncours(projetId).subscribe(
       (count1) => {
         this.taskCountEncours = count1;
       },
@@ -80,10 +81,10 @@ export class ProjectIdComponent implements OnInit {
       }
     );
   }
-  loadPhaseesCount() {
-    const projectId = this.project.projetId; // Assuming the project object is available
+  loadPhaseesCount(projetId: number) {
+    
 
-    this.apiService.getPhasesTotal(projectId).subscribe(
+    this.apiService.getPhasesTotal(projetId).subscribe(
       (count) => {
         this.phaseTotal = count;
       },

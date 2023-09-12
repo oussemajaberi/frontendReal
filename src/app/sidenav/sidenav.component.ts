@@ -9,10 +9,13 @@ import { navbarData } from './nav-data';
 export class SidenavComponent implements OnInit {
   collapsed=false;
   navData=navbarData;
+  
 
   constructor() { }
 
   ngOnInit(): void {
   }
+  
+  
 
 }

@@ -36,7 +36,7 @@
           <canvas id="myCanvas" width="48" height="52" style="border:none;border-radius:10px;border:1px dashed #000;margin:0 20px">
             </canvas>
             <div style="display: flex;flex-direction: column;">
-              <p style="margin:7px 0">{{ project.nomProjet }}</p>
+              <p style="margin:7px 0" [routerLink]="['/projects', project.projetId]">{{ project.nomProjet }}</p>
               <p>{{project.dateCreation | date}}</p>
             </div>
 
